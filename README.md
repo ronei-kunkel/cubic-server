@@ -118,3 +118,39 @@ Até o momento, apenas o código minificado está disponível ao acessar o host 
 - Teste as modificações feitas com o código simplificado acessando o host local <http://cubic-react.test>;
 
 É importante ressaltar esse fluxo pois até o momento não achamos solução para implementar o hot reload no host local, mas em breve esperamos que seja possível tal ação não sendo mais necessário utilizar o comando `node run start` para fazer os desenvolvimentos.
+
+## Subindo os containers
+
+Os containers na primeira vez devem ser montados a partir da raiz do repositório do servidor usando o comando
+
+```shell
+docker-compose build nginx mysql php-fpm php-worker redis workspace
+```
+
+Após montar os containers, é necessário iniciar eles com o comando
+
+```shell
+docker-compose up -d nginx mysql php-fpm php-worker redis workspace
+```
+
+Para parar os containers é só rodar o comando
+
+```shell
+docker-compose stop nginx mysql php-fpm php-worker redis workspace
+```
+
+Há uma especificidade que existe por enquanto no app __cubic-react__ que ele é tratado como se fosse um container também. Então, quando for fazer o teste no host definido nos passos acima, é importante subir junto o container do app.
+
+Isso pode ser feito adicionando o `react` no final dos comandos, ficando assim respectivamente para montar, iniciar e parar:
+
+```shell
+docker-compose build nginx mysql php-fpm php-worker redis workspace react
+```
+
+```shell
+docker-compose up -d nginx mysql php-fpm php-worker redis workspace react
+```
+
+```shell
+docker-compose stop nginx mysql php-fpm php-worker redis workspace react
+```
