@@ -124,19 +124,19 @@ Até o momento, apenas o código minificado está disponível ao acessar o host 
 Os containers na primeira vez devem ser montados a partir da raiz do repositório do servidor usando o comando
 
 ```shell
-docker-compose build nginx mysql php-fpm php-worker redis workspace
+docker-compose build nginx mysql php-fpm workspace docker-in-docker
 ```
 
 Após montar os containers, é necessário iniciar eles com o comando
 
 ```shell
-docker-compose up -d nginx mysql php-fpm php-worker redis workspace
+docker-compose up -d nginx mysql php-fpm workspace docker-in-docker
 ```
 
 Para parar os containers é só rodar o comando
 
 ```shell
-docker-compose stop nginx mysql php-fpm php-worker redis workspace
+docker-compose stop nginx mysql php-fpm workspace docker-in-docker
 ```
 
 Há uma especificidade que existe por enquanto no app __cubic-react__ que ele é tratado como se fosse um container também. Então, quando for fazer o teste no host definido nos passos acima, é importante subir junto o container do app.
@@ -144,13 +144,13 @@ Há uma especificidade que existe por enquanto no app __cubic-react__ que ele é
 Isso pode ser feito adicionando o `react` no final dos comandos, ficando assim respectivamente para montar, iniciar e parar:
 
 ```shell
-docker-compose build nginx mysql php-fpm php-worker redis workspace react
+docker-compose build nginx mysql php-fpm workspace docker-in-docker react
 ```
 
 ```shell
-docker-compose up -d nginx mysql php-fpm php-worker redis workspace react
+docker-compose up -d nginx mysql php-fpm workspace docker-in-docker react
 ```
 
 ```shell
-docker-compose stop nginx mysql php-fpm php-worker redis workspace react
+docker-compose stop nginx mysql php-fpm workspace docker-in-docker react
 ```
