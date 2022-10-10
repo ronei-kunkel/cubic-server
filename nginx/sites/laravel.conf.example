@@ -38,6 +38,11 @@ server {
         log_not_found off;
     }
 
+    location /favicon.ico {
+        access_log off;
+        log_not_found off;
+    }
+
     error_log /var/log/nginx/cubic-laravel_error.log;
     access_log /var/log/nginx/cubic-laravel_access.log;
 }
