@@ -2015,21 +2015,21 @@ services:
 #       # restart: always
 
 ### react #####################################################
-    react:
-      build:
-        context: ./cubic-react
-      ports:
-        - "5000:80"
-      container_name: cubic_react
-      stdin_open: true
-      environment:
-        - CHOKIDAR_USEPOLLING=true
-      networks:
-          - frontend
-          - backend
-      volumes:
-        - ./cubic-react:/var/www/cubic-react
-        - /var/www/cubic-react/node_modules
+    # react:
+    #   build:
+    #     context: ./cubic-react
+    #   ports:
+    #     - "5000:80"
+    #   container_name: cubic_react
+    #   stdin_open: true
+    #   environment:
+    #     - CHOKIDAR_USEPOLLING=true
+    #   networks:
+    #       - frontend
+    #       - backend
+    #   volumes:
+    #     - ./cubic-react:/var/www/cubic-react
+    #     - /var/www/cubic-react/node_modules
 
 # ### kafka ####################################################
 #     kafka:
